@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-midnight: #070B19;
+    --color-midnight-deep: #03060E;
+    --color-royal-navy: #0E172E;
+    --color-royal-blue: #162244;
+    --color-royal-purple: #1B142F;
+    --color-ivory: #FAF8F5;
+    --color-ivory-warm: #F3ECE1;
+    --color-gold-200: #FDF0BA;
+    --color-gold-300: #F5DE88;
+    --color-gold-400: #E7C85C;
+    --color-gold-500: #D4AF37;
+    --color-gold-600: #B89225;
+    --color-gold-700: #947217;
+    --color-marigold: #F39C12;
+    --color-saffron: #E67E22;
+    --color-crimson: #8C1D24;
+  }
+
+  body {
+    background-color: #040711;
+    color: #FAF8F5;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Shimmer Gold Effect */
+.shimmer-gold {
+  background: linear-gradient(90deg, #B89225 0%, #FFF5C0 35%, #F4D368 50%, #FAF8F5 65%, #B89225 100%);
+  background-size: 250% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 250% center;
+  }
+}
+
+@keyframes floatPetal {
+  0% {
+    transform: translate3d(0, -10px, 0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(50px, 105vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
+  }
+  50% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 28px rgba(243, 156, 18, 0.85));
+  }
+}
+
+@keyframes dashDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes bulbFlicker {
+  0%, 100% {
+    fill: #FFE28A;
+    filter: drop-shadow(0 0 4px #F5D061);
+    opacity: 0.95;
+  }
+  50% {
+    fill: #FFF9DB;
+    filter: drop-shadow(0 0 10px #FFEA79);
+    opacity: 1;
+  }
+}
+
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes haloBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.85;
+  }
+}
+
+.animate-float {
+  animation: floatSoft 4.5s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulseGlow 3.5s ease-in-out infinite;
+}
+
+.animate-halo {
+  animation: haloBreathe 5s ease-in-out infinite;
+}
+
+/* Royal Palace Filigree & Ornamental Borders */
+.royal-border {
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  position: relative;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(212, 175, 55, 0.08);
+}
+
+.royal-border::before,
+.royal-border::after {
+  content: '⚜';
+  position: absolute;
+  color: #E7C85C;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.royal-border::before {
+  top: -6px;
+  left: 14px;
+}
+
+.royal-border::after {
+  bottom: -6px;
+  right: 14px;
+}
+
+/* Ornate Corner Elements */
+.filigree-box {
+  position: relative;
+}
+
+.filigree-box::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 14px;
+  height: 14px;
+  border-top: 2px solid #D4AF37;
+  border-left: 2px solid #D4AF37;
+  pointer-events: none;
+  border-top-left-radius: 4px;
+}
+
+.filigree-box::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  border-bottom: 2px solid #D4AF37;
+  border-right: 2px solid #D4AF37;
+  pointer-events: none;
+  border-bottom-right-radius: 4px;
+}
+
+/* Parchment Royal Seal */
+.wax-seal {
+  background: radial-gradient(circle at 35% 35%, #BF2A2D, #7F0E13);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #040711;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E7C85C;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
